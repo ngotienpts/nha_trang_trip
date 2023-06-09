@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- favicon -->
+  <link rel="icon" sizes="32x32" href="./images/favicon/favicon.png">
+  <!-- end favicon -->
+  <title>Express</title>
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- end font -->
+  
+  <link rel="stylesheet" href="./lib/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+  <script src="./lib/jquery/jquery.js"></script>
+</head>
+
+<body>
+  
+  <!-- header -->
+  <header id="header" class="header">
+    <div class="wrapper w-1400">
+      <!-- primary -->
+      <section class="header-primary">
+        <div class="d-2xl-flex items-center justify-between h-42">
+          <!-- social -->
+          <ul class="header-primary__social d-2xl-flex items-center">
+            <!-- item -->
+            <li class="item">
+              <a href="#" class="hover-orange-fb transition link">
+                <svg width="16" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M11,10h2.6l0.4-3H11V5.3c0-0.9,0.2-1.5,1.5-1.5H14V1.1c-0.3,0-1-0.1-2.1-0.1C9.6,1,8,2.4,8,5v2H5.5v3H8v8h3V10z"></path></svg>
+              </a>
+            </li>
+            <!-- end item -->
+            <!-- item -->
+            <li class="item">
+              <a href="#" class="hover-orange-fb transition link">
+                <svg width="16" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M19,4.74 C18.339,5.029 17.626,5.229 16.881,5.32 C17.644,4.86 18.227,4.139 18.503,3.28 C17.79,3.7 17.001,4.009 16.159,4.17 C15.485,3.45 14.526,3 13.464,3 C11.423,3 9.771,4.66 9.771,6.7 C9.771,6.99 9.804,7.269 9.868,7.539 C6.795,7.38 4.076,5.919 2.254,3.679 C1.936,4.219 1.754,4.86 1.754,5.539 C1.754,6.82 2.405,7.95 3.397,8.61 C2.79,8.589 2.22,8.429 1.723,8.149 L1.723,8.189 C1.723,9.978 2.997,11.478 4.686,11.82 C4.376,11.899 4.049,11.939 3.713,11.939 C3.475,11.939 3.245,11.919 3.018,11.88 C3.49,13.349 4.852,14.419 6.469,14.449 C5.205,15.429 3.612,16.019 1.882,16.019 C1.583,16.019 1.29,16.009 1,15.969 C2.635,17.019 4.576,17.629 6.662,17.629 C13.454,17.629 17.17,12 17.17,7.129 C17.17,6.969 17.166,6.809 17.157,6.649 C17.879,6.129 18.504,5.478 19,4.74"></path></svg>
+              </a>
+            </li>
+            <!-- end item -->
+            <!-- item -->
+            <li class="item">
+              <a href="#" class="hover-orange-fb transition link">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="currentColor"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+              </a>
+            </li>
+            <!-- end item -->
+          </ul>
+          <!-- end social -->
+          <!-- contact -->
+          <div class="header-primary__contact d-2xl-flex items-center">
+            <div class="header-primary__phone text-gray-60 hover-orange-fb fs-14 d-2xl-flex items-center ">
+              <img src="./images/svg/phone.svg" alt="" class="mr-4">
+              <a href="#" class="link-hover">0123456789</a>
+            </div>
+            <div class="header-primary__email text-gray-60 hover-orange-fb fs-14 d-2xl-flex items-center ml-20">
+              <img src="./images/svg/email.svg" alt="" class="mr-4">
+              <a href="#" class="link-hover">hello@gmail.com</a>
+            </div>
+          </div>
+          <!-- end contact -->
+          <!-- login -->
+          <div class="header-primary__login d-2xl-flex items-center">
+            <img src="./images/svg/user.svg" alt="" class="header-primary__user mr-4">
+            <p class="text-gray-39 fs-14">Login Form</p>
+          </div>
+          <!-- end login -->
+        </div>
+      </section>
+      <!-- end primary -->
+
+      <!-- secondary -->
+      <div class="header-secondary">
+        <div class="d-2xl-flex items-center justify-between">
+          <!-- logo -->
+          <h2 class="header-secondary__logo uppercase fw-700 text-gray-1b">
+            <a href="#" class="header-secondary__logo-link">Express</a>
+          </h2>
+          <!-- end logo -->
+
+          <!-- action -->
+          <div class="header-secondary__action d-2xl-flex items-center">
+            <!-- search -->
+            <div class="header-secondary__search cursor">
+              <div class="header-secondary__search-icon hover-orange-fb">
+                <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle fill="none" stroke="currentColor" stroke-width="1.1" cx="9" cy="9" r="7"></circle><path fill="none" stroke="#000" stroke-width="1.1" d="M14,14 L18,18 L14,14 Z"></path></svg>
+              </div>
+            </div>
+            <!-- end search -->
+            <!-- menu -->
+            <div class="header-secondary__menu cursor ml-24">
+              <img src="./images/svg/menu.svg" alt="" class="header-secondary__menu-bar">
+            </div>
+            <!-- end menu -->
+          </div>
+          <!-- end action -->
+        </div>
+      </div>
+      <!-- end secondary -->
+
+      <!-- tertiary -->
+      <div class="header-tertiary">
+        <div class="header-grid d-2xl-grid col-6 gap-30 position-relative">
+          <!-- item -->
+          <div class="header-grid__item dropdown-wrapper">
+            <!-- title -->
+            <div class="header-grid__item-title text-gray-3c3d3e hover-orange-fb">
+              <a href="#" class="d-2xl-flex items-center justify-between py-20 border-b">
+                <h3 class="fs-14 uppercase">Fashion</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="ipc-icon ipc-icon--expand-more" id="iconContext-expand-more" viewBox="0 0 24 24" fill="currentColor" role="presentation"><path opacity=".87" fill="none" d="M24 24H0V0h24v24z"></path><path d="M15.88 9.29L12 13.17 8.12 9.29a.996.996 0 1 0-1.41 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59a.996.996 0 0 0 0-1.41c-.39-.38-1.03-.39-1.42 0z"></path></svg>
+              </a>
+            </div>
+            <!-- end title -->
+            <!-- dropdown -->
+            <div class="header-grid__item-container dropdown-container border position-absolute">
+              <div class="list d-2xl-grid col-3 gap-30">
+                <!-- item -->
+                <div class="item">
+                  <div class="img">
+                    <a href="#" class="image-wrapper">
+                      <img src="./images/2.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="content mt-20">
+                    <h3 class="title py-10 fs-18 text-gray-2c2f lh-24 fw-600 hover-orange-fb link-hover">
+                      <a href="#" class=" fix-text2">Two More Easy Ways To Stay Healthy During Cold and Flu Season</a>
+                    </h3>
+                    <div class="des d-2xl-flex items-center text-gray-999 fs-14">
+                      <span class="date" >24 April 2023</span>
+                      <span>&nbsp;-&nbsp;</span>
+                      <span class="author">by Alexandra Owen</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end item -->
+                <!-- item -->
+                <div class="item">
+                  <div class="img">
+                    <a href="#" class="image-wrapper">
+                      <img src="./images/2.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="content mt-20">
+                    <h3 class="title py-10 fs-18 text-gray-2c2f lh-24 fw-600 hover-orange-fb link-hover">
+                      <a href="#" class=" fix-text2">Two More Easy Ways To Stay Healthy During Cold and Flu Season</a>
+                    </h3>
+                    <div class="des d-2xl-flex items-center text-gray-999 fs-14">
+                      <span class="date" >24 April 2023</span>
+                      <span>&nbsp;-&nbsp;</span>
+                      <span class="author">by Alexandra Owen</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end item -->
+                <!-- item -->
+                <div class="item">
+                  <div class="img">
+                    <a href="#" class="image-wrapper">
+                      <img src="./images/2.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="content mt-20">
+                    <h3 class="title py-10 fs-18 text-gray-2c2f lh-24 fw-600 hover-orange-fb link-hover">
+                      <a href="#" class=" fix-text2">Two More Easy Ways To Stay Healthy During Cold and Flu Season</a>
+                    </h3>
+                    <div class="des d-2xl-flex items-center text-gray-999 fs-14">
+                      <span class="date" >24 April 2023</span>
+                      <span>&nbsp;-&nbsp;</span>
+                      <span class="author">by Alexandra Owen</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end item -->
+              </div>
+            </div>
+            <!-- end dropdown -->
+          </div>
+          <!-- end item -->
+          <!-- item -->
+          <div class="header-grid__item dropdown-wrapper">
+            <!-- title -->
+            <div class="header-grid__item-title text-gray-3c3d3e hover-orange-fb">
+              <a href="#" class="d-2xl-flex items-center justify-between py-20 border-b">
+                <h3 class="fs-14 uppercase">Fashion</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="ipc-icon ipc-icon--expand-more" id="iconContext-expand-more" viewBox="0 0 24 24" fill="currentColor" role="presentation"><path opacity=".87" fill="none" d="M24 24H0V0h24v24z"></path><path d="M15.88 9.29L12 13.17 8.12 9.29a.996.996 0 1 0-1.41 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59a.996.996 0 0 0 0-1.41c-.39-.38-1.03-.39-1.42 0z"></path></svg>
+              </a>
+            </div>
+            <!-- end title -->
+            <!-- dropdown -->
+            <div class="header-grid__item-container dropdown-container border position-absolute">
+              <div class="list d-2xl-grid col-3 gap-30">
+                <!-- item -->
+                <div class="item">
+                  <div class="img">
+                    <a href="#" class="image-wrapper">
+                      <img src="./images/2.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="content mt-20">
+                    <h3 class="title py-10 fs-18 text-gray-2c2f lh-24 fw-600 hover-orange-fb link-hover">
+                      <a href="#" class=" fix-text2">Two More Easy Ways To Stay Healthy During Cold and Flu Season</a>
+                    </h3>
+                    <div class="des d-2xl-flex items-center text-gray-999 fs-14">
+                      <span class="date" >24 April 2023</span>
+                      <span>&nbsp;-&nbsp;</span>
+                      <span class="author">by Alexandra Owen</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end item -->
+                <!-- item -->
+                <div class="item">
+                  <div class="img">
+                    <a href="#" class="image-wrapper">
+                      <img src="./images/2.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="content mt-20">
+                    <h3 class="title py-10 fs-18 text-gray-2c2f lh-24 fw-600 hover-orange-fb link-hover">
+                      <a href="#" class=" fix-text2">Two More Easy Ways To Stay Healthy During Cold and Flu Season</a>
+                    </h3>
+                    <div class="des d-2xl-flex items-center text-gray-999 fs-14">
+                      <span class="date" >24 April 2023</span>
+                      <span>&nbsp;-&nbsp;</span>
+                      <span class="author">by Alexandra Owen</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end item -->
+                <!-- item -->
+                <div class="item">
+                  <div class="img">
+                    <a href="#" class="image-wrapper">
+                      <img src="./images/2.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="content mt-20">
+                    <h3 class="title py-10 fs-18 text-gray-2c2f lh-24 fw-600 hover-orange-fb link-hover">
+                      <a href="#" class=" fix-text2">Two More Easy Ways To Stay Healthy During Cold and Flu Season</a>
+                    </h3>
+                    <div class="des d-2xl-flex items-center text-gray-999 fs-14">
+                      <span class="date" >24 April 2023</span>
+                      <span>&nbsp;-&nbsp;</span>
+                      <span class="author">by Alexandra Owen</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end item -->
+              </div>
+            </div>
+            <!-- end dropdown -->
+          </div>
+          <!-- end item -->
+          <!-- item -->
+          <div class="header-grid__item dropdown-wrapper">
+            <!-- title -->
+            <div class="header-grid__item-title text-gray-3c3d3e hover-orange-fb">
+              <a href="#" class="d-2xl-flex items-center justify-between py-20 border-b">
+                <h3 class="fs-14 uppercase">Fashion</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="ipc-icon ipc-icon--expand-more" id="iconContext-expand-more" viewBox="0 0 24 24" fill="currentColor" role="presentation"><path opacity=".87" fill="none" d="M24 24H0V0h24v24z"></path><path d="M15.88 9.29L12 13.17 8.12 9.29a.996.996 0 1 0-1.41 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59a.996.996 0 0 0 0-1.41c-.39-.38-1.03-.39-1.42 0z"></path></svg>
+              </a>
+            </div>
+            <!-- end title -->
+            <!-- dropdown -->
+            <div class="header-grid__item-container dropdown-container border position-absolute">
+              <div class="list d-2xl-grid col-3 gap-30">
+                <!-- item -->
+                <div class="item">
+                  <div class="img">
+                    <a href="#" class="image-wrapper">
+                      <img src="./images/2.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="content mt-20">
+                    <h3 class="title py-10 fs-18 text-gray-2c2f lh-24 fw-600 hover-orange-fb link-hover">
+                      <a href="#" class=" fix-text2">Two More Easy Ways To Stay Healthy During Cold and Flu Season</a>
+                    </h3>
+                    <div class="des d-2xl-flex items-center text-gray-999 fs-14">
+                      <span class="date" >24 April 2023</span>
+                      <span>&nbsp;-&nbsp;</span>
+                      <span class="author">by Alexandra Owen</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end item -->
+                <!-- item -->
+                <div class="item">
+                  <div class="img">
+                    <a href="#" class="image-wrapper">
+                      <img src="./images/2.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="content mt-20">
+                    <h3 class="title py-10 fs-18 text-gray-2c2f lh-24 fw-600 hover-orange-fb link-hover">
+                      <a href="#" class=" fix-text2">Two More Easy Ways To Stay Healthy During Cold and Flu Season</a>
+                    </h3>
+                    <div class="des d-2xl-flex items-center text-gray-999 fs-14">
+                      <span class="date" >24 April 2023</span>
+                      <span>&nbsp;-&nbsp;</span>
+                      <span class="author">by Alexandra Owen</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end item -->
+                <!-- item -->
+                <div class="item">
+                  <div class="img">
+                    <a href="#" class="image-wrapper">
+                      <img src="./images/2.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="content mt-20">
+                    <h3 class="title py-10 fs-18 text-gray-2c2f lh-24 fw-600 hover-orange-fb link-hover">
+                      <a href="#" class=" fix-text2">Two More Easy Ways To Stay Healthy During Cold and Flu Season</a>
+                    </h3>
+                    <div class="des d-2xl-flex items-center text-gray-999 fs-14">
+                      <span class="date" >24 April 2023</span>
+                      <span>&nbsp;-&nbsp;</span>
+                      <span class="author">by Alexandra Owen</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end item -->
+              </div>
+            </div>
+            <!-- end dropdown -->
+          </div>
+          <!-- end item -->
+          <!-- item -->
+          <div class="header-grid__item dropdown-wrapper">
+            <!-- title -->
+            <div class="header-grid__item-title text-gray-3c3d3e hover-orange-fb">
+              <a href="#" class="d-2xl-flex items-center justify-between py-20 border-b">
+                <h3 class="fs-14 uppercase">Fashion</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="ipc-icon ipc-icon--expand-more" id="iconContext-expand-more" viewBox="0 0 24 24" fill="currentColor" role="presentation"><path opacity=".87" fill="none" d="M24 24H0V0h24v24z"></path><path d="M15.88 9.29L12 13.17 8.12 9.29a.996.996 0 1 0-1.41 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59a.996.996 0 0 0 0-1.41c-.39-.38-1.03-.39-1.42 0z"></path></svg>
+              </a>
+            </div>
+            <!-- end title -->
+            <!-- dropdown -->
+            <div class="header-grid__item-container dropdown-container border position-absolute">
+              <div class="list d-2xl-grid col-3 gap-30">
+                <!-- item -->
+                <div class="item">
+                  <div class="img">
+                    <a href="#" class="image-wrapper">
+                      <img src="./images/2.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="content mt-20">
+                    <h3 class="title py-10 fs-18 text-gray-2c2f lh-24 fw-600 hover-orange-fb link-hover">
+                      <a href="#" class=" fix-text2">Two More Easy Ways To Stay Healthy During Cold and Flu Season</a>
+                    </h3>
+                    <div class="des d-2xl-flex items-center text-gray-999 fs-14">
+                      <span class="date" >24 April 2023</span>
+                      <span>&nbsp;-&nbsp;</span>
+                      <span class="author">by Alexandra Owen</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end item -->
+                <!-- item -->
+                <div class="item">
+                  <div class="img">
+                    <a href="#" class="image-wrapper">
+                      <img src="./images/2.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="content mt-20">
+                    <h3 class="title py-10 fs-18 text-gray-2c2f lh-24 fw-600 hover-orange-fb link-hover">
+                      <a href="#" class=" fix-text2">Two More Easy Ways To Stay Healthy During Cold and Flu Season</a>
+                    </h3>
+                    <div class="des d-2xl-flex items-center text-gray-999 fs-14">
+                      <span class="date" >24 April 2023</span>
+                      <span>&nbsp;-&nbsp;</span>
+                      <span class="author">by Alexandra Owen</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end item -->
+                <!-- item -->
+                <div class="item">
+                  <div class="img">
+                    <a href="#" class="image-wrapper">
+                      <img src="./images/2.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="content mt-20">
+                    <h3 class="title py-10 fs-18 text-gray-2c2f lh-24 fw-600 hover-orange-fb link-hover">
+                      <a href="#" class=" fix-text2">Two More Easy Ways To Stay Healthy During Cold and Flu Season</a>
+                    </h3>
+                    <div class="des d-2xl-flex items-center text-gray-999 fs-14">
+                      <span class="date" >24 April 2023</span>
+                      <span>&nbsp;-&nbsp;</span>
+                      <span class="author">by Alexandra Owen</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end item -->
+              </div>
+            </div>
+            <!-- end dropdown -->
+          </div>
+          <!-- end item -->
+          <!-- item -->
+          <div class="header-grid__item dropdown-wrapper">
+            <!-- title -->
+            <div class="header-grid__item-title text-gray-3c3d3e hover-orange-fb">
+              <a href="#" class="d-2xl-flex items-center justify-between py-20 border-b">
+                <h3 class="fs-14 uppercase">Fashion</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="ipc-icon ipc-icon--expand-more" id="iconContext-expand-more" viewBox="0 0 24 24" fill="currentColor" role="presentation"><path opacity=".87" fill="none" d="M24 24H0V0h24v24z"></path><path d="M15.88 9.29L12 13.17 8.12 9.29a.996.996 0 1 0-1.41 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59a.996.996 0 0 0 0-1.41c-.39-.38-1.03-.39-1.42 0z"></path></svg>
+              </a>
+            </div>
+            <!-- end title -->
+            <!-- dropdown -->
+            <div class="header-grid__item-container dropdown-container border position-absolute">
+              <div class="list d-2xl-grid col-3 gap-30">
+                <!-- item -->
+                <div class="item">
+                  <div class="img">
+                    <a href="#" class="image-wrapper">
+                      <img src="./images/2.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="content mt-20">
+                    <h3 class="title py-10 fs-18 text-gray-2c2f lh-24 fw-600 hover-orange-fb link-hover">
+                      <a href="#" class=" fix-text2">Two More Easy Ways To Stay Healthy During Cold and Flu Season</a>
+                    </h3>
+                    <div class="des d-2xl-flex items-center text-gray-999 fs-14">
+                      <span class="date" >24 April 2023</span>
+                      <span>&nbsp;-&nbsp;</span>
+                      <span class="author">by Alexandra Owen</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end item -->
+                <!-- item -->
+                <div class="item">
+                  <div class="img">
+                    <a href="#" class="image-wrapper">
+                      <img src="./images/2.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="content mt-20">
+                    <h3 class="title py-10 fs-18 text-gray-2c2f lh-24 fw-600 hover-orange-fb link-hover">
+                      <a href="#" class=" fix-text2">Two More Easy Ways To Stay Healthy During Cold and Flu Season</a>
+                    </h3>
+                    <div class="des d-2xl-flex items-center text-gray-999 fs-14">
+                      <span class="date" >24 April 2023</span>
+                      <span>&nbsp;-&nbsp;</span>
+                      <span class="author">by Alexandra Owen</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end item -->
+                <!-- item -->
+                <div class="item">
+                  <div class="img">
+                    <a href="#" class="image-wrapper">
+                      <img src="./images/2.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="content mt-20">
+                    <h3 class="title py-10 fs-18 text-gray-2c2f lh-24 fw-600 hover-orange-fb link-hover">
+                      <a href="#" class=" fix-text2">Two More Easy Ways To Stay Healthy During Cold and Flu Season</a>
+                    </h3>
+                    <div class="des d-2xl-flex items-center text-gray-999 fs-14">
+                      <span class="date" >24 April 2023</span>
+                      <span>&nbsp;-&nbsp;</span>
+                      <span class="author">by Alexandra Owen</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end item -->
+              </div>
+            </div>
+            <!-- end dropdown -->
+          </div>
+          <!-- end item -->
+          <!-- item -->
+          <div class="header-grid__item dropdown-wrapper">
+            <!-- title -->
+            <div class="header-grid__item-title text-gray-3c3d3e hover-orange-fb">
+              <a href="#" class="d-2xl-flex items-center justify-between py-20 border-b">
+                <h3 class="fs-14 uppercase">Fashion</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="ipc-icon ipc-icon--expand-more" id="iconContext-expand-more" viewBox="0 0 24 24" fill="currentColor" role="presentation"><path opacity=".87" fill="none" d="M24 24H0V0h24v24z"></path><path d="M15.88 9.29L12 13.17 8.12 9.29a.996.996 0 1 0-1.41 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59a.996.996 0 0 0 0-1.41c-.39-.38-1.03-.39-1.42 0z"></path></svg>
+              </a>
+            </div>
+            <!-- end title -->
+            <!-- dropdown -->
+            <div class="header-grid__item-container dropdown-container border position-absolute">
+              <div class="list d-2xl-grid col-3 gap-30">
+                <!-- item -->
+                <div class="item">
+                  <div class="img">
+                    <a href="#" class="image-wrapper">
+                      <img src="./images/2.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="content mt-20">
+                    <h3 class="title py-10 fs-18 text-gray-2c2f lh-24 fw-600 hover-orange-fb link-hover">
+                      <a href="#" class=" fix-text2">Two More Easy Ways To Stay Healthy During Cold and Flu Season</a>
+                    </h3>
+                    <div class="des d-2xl-flex items-center text-gray-999 fs-14">
+                      <span class="date" >24 April 2023</span>
+                      <span>&nbsp;-&nbsp;</span>
+                      <span class="author">by Alexandra Owen</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end item -->
+                <!-- item -->
+                <div class="item">
+                  <div class="img">
+                    <a href="#" class="image-wrapper">
+                      <img src="./images/2.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="content mt-20">
+                    <h3 class="title py-10 fs-18 text-gray-2c2f lh-24 fw-600 hover-orange-fb link-hover">
+                      <a href="#" class=" fix-text2">Two More Easy Ways To Stay Healthy During Cold and Flu Season</a>
+                    </h3>
+                    <div class="des d-2xl-flex items-center text-gray-999 fs-14">
+                      <span class="date" >24 April 2023</span>
+                      <span>&nbsp;-&nbsp;</span>
+                      <span class="author">by Alexandra Owen</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end item -->
+                <!-- item -->
+                <div class="item">
+                  <div class="img">
+                    <a href="#" class="image-wrapper">
+                      <img src="./images/2.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="content mt-20">
+                    <h3 class="title py-10 fs-18 text-gray-2c2f lh-24 fw-600 hover-orange-fb link-hover">
+                      <a href="#" class=" fix-text2">Two More Easy Ways To Stay Healthy During Cold and Flu Season</a>
+                    </h3>
+                    <div class="des d-2xl-flex items-center text-gray-999 fs-14">
+                      <span class="date" >24 April 2023</span>
+                      <span>&nbsp;-&nbsp;</span>
+                      <span class="author">by Alexandra Owen</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- end item -->
+              </div>
+            </div>
+            <!-- end dropdown -->
+          </div>
+          <!-- end item -->
+        </div>
+      </div>
+      <!-- end tertiary -->
+    </div>
+      
+  </header>
+  <!-- end header -->
+  <!-- main -->
+  <main id="main" class="main">
+    
+  </main>
+  <!-- end main -->
+  <!-- footer -->
+  <footer id="footer" class="footer py-16 text-center">
+    <!-- back top -->
+    <div id="back-top">
+      <img src="./images/svg/up.svg" alt="" class="mr-4">
+      Back to top
+    </div>
+    <!-- end back top -->
+  </footer>
+  <!-- end footer -->
+
+  <script src="./lib/swiper/swiper-bundle.min.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
