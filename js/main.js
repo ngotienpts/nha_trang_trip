@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // back top
     var backTop = document.querySelector("#back-top");
 
+    var fourSliders = document.querySelectorAll(".js__fourItems");
+
     const app = {
         // su ly cac su kien
         handleEvent: function () {
@@ -15,16 +17,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
         },
 
-        // slider six item
-        sliderSixItems: function () {
-            sixSliders &&
-                sixSliders.forEach((sixSlider) => {
-                    var next = sixSlider.querySelector(".swiper-button-next");
-                    var prev = sixSlider.querySelector(".swiper-button-prev");
-                    new Swiper(sixSlider, {
-                        slidesPerView: 2.3,
+        // slider four item
+        sliderFourItems: function () {
+            fourSliders &&
+                fourSliders.forEach((fourSlider) => {
+                    var next = fourSlider.querySelector(".swiper-button-next");
+                    var prev = fourSlider.querySelector(".swiper-button-prev");
+                    new Swiper(fourSlider, {
+                        slidesPerView: 2,
                         spaceBetween: 16,
-                        slidesPerGroup: 2,
+                        slidesPerGroup: 1,
+                        autoplay: {
+                            delay: 2500,
+                            disableOnInteraction: false,
+                        },
                         navigation: {
                             nextEl: next,
                             prevEl: prev,
@@ -32,23 +38,23 @@ document.addEventListener("DOMContentLoaded", function () {
                         breakpoints: {
                             640: {
                                 slidesPerView: 2,
-                                slidesPerGroup: 2,
+                                slidesPerGroup: 1,
                                 spaceBetween: 16,
                             },
                             768: {
-                                slidesPerView: 4.3,
-                                slidesPerGroup: 4,
+                                slidesPerView: 3.3,
+                                slidesPerGroup: 1,
                                 spaceBetween: 16,
                             },
                             1024: {
-                                slidesPerView: 6,
-                                spaceBetween: 16,
-                                slidesPerGroup: 6,
+                                slidesPerView: 4,
+                                spaceBetween: 30,
+                                slidesPerGroup: 1,
                             },
                             1200: {
-                                slidesPerView: 6,
-                                spaceBetween: 25,
-                                slidesPerGroup: 6,
+                                slidesPerView: 4,
+                                spaceBetween: 30,
+                                slidesPerGroup: 1,
                             },
                         },
                     });
@@ -90,8 +96,8 @@ document.addEventListener("DOMContentLoaded", function () {
             // window scroll
             this.windowScroll();
 
-            // // slider six item
-            // this.sliderSixItems();
+            // // slider four item
+            this.sliderFourItems();
         },
     };
 

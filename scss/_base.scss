@@ -122,7 +122,12 @@ img {
 .w-full {
     width: 100%;
 }
-
+.w-35 {
+    width: 35%;
+}
+.w-40 {
+    width: 40%;
+}
 /*=================================================================*/
 .d-2xl-none {
     display: none;
@@ -211,6 +216,9 @@ img {
 .fs-32 {
     font-size: 2rem;
 }
+.fs-34 {
+    font-size: 2.125rem;
+}
 .fs-36 {
     font-size: 2.25rem;
 }
@@ -222,30 +230,37 @@ img {
 }
 
 /*=================================================================*/
+.image-wrapper-50 {
+    position: relative;
+    display: block;
+    padding-bottom: 50%;
+}
 .image-wrapper {
     position: relative;
     display: block;
     padding-bottom: 60%;
+}
+.image-wrapper-75 {
+    position: relative;
+    display: block;
+    padding-bottom: 75%;
 }
 .image-wrapper-full {
     position: relative;
     display: block;
     padding-bottom: 100%;
 }
-.image-wrapper-vertical {
+.image-wrapper-104 {
     position: relative;
     display: block;
-    padding-bottom: 140%;
+    padding-bottom: 104.5%;
 }
-.image-wrapper-vertical-125 {
-    position: relative;
-    display: block;
-    padding-bottom: 125%;
-}
+
+.image-wrapper-50 img,
 .image-wrapper img,
-.image-wrapper-vertical img,
+.image-wrapper-75 img,
 .image-wrapper-full img,
-.image-wrapper-vertical-125 img {
+.image-wrapper-104 img {
     position: absolute;
     object-fit: cover;
     width: 100%;
@@ -257,6 +272,12 @@ img {
 }
 .text-white {
     color: #fff;
+}
+.text-white-50 {
+    color: rgba($color: #fff, $alpha: 0.5);
+}
+.text-white-70 {
+    color: rgba($color: #fff, $alpha: 0.7);
 }
 .text-gray-333 {
     color: #333;
@@ -700,6 +721,100 @@ img {
 .m-24 {
     margin: 1.5rem;
 }
+/*=================================================================*/
+.pt-30 {
+    padding-top: 1.875rem;
+}
+.pb-30 {
+    padding-bottom: 1.875rem;
+}
+.pl-30 {
+    padding-left: 1.875rem;
+}
+.pr-30 {
+    padding-right: 1.875rem;
+}
+.py-30 {
+    padding-top: 1.875rem;
+    padding-bottom: 1.875rem;
+}
+.px-30 {
+    padding-left: 1.875rem;
+    padding-right: 1.875rem;
+}
+.p-30 {
+    padding: 1.875rem;
+}
+.mt-30 {
+    margin-top: 1.875rem;
+}
+.mb-30 {
+    margin-bottom: 1.875rem;
+}
+.ml-30 {
+    margin-left: 1.875rem;
+}
+.mr-30 {
+    margin-right: 1.875rem;
+}
+.my-30 {
+    margin-top: 1.875rem;
+    margin-bottom: 1.875rem;
+}
+.mx-30 {
+    margin-left: 1.875rem;
+    margin-right: 1.875rem;
+}
+.m-30 {
+    margin: 1.875rem;
+}
+/*=================================================================*/
+.pt-40 {
+    padding-top: 2.5rem;
+}
+.pb-40 {
+    padding-bottom: 2.5rem;
+}
+.pl-40 {
+    padding-left: 2.5rem;
+}
+.pr-40 {
+    padding-right: 2.5rem;
+}
+.py-40 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+.px-40 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+.p-40 {
+    padding: 2.5rem;
+}
+.mt-40 {
+    margin-top: 2.5rem;
+}
+.mb-40 {
+    margin-bottom: 2.5rem;
+}
+.ml-40 {
+    margin-left: 2.5rem;
+}
+.mr-40 {
+    margin-right: 2.5rem;
+}
+.my-40 {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+.mx-40 {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+}
+.m-40 {
+    margin: 2.5rem;
+}
 
 /*=================================================================*/
 .border-999 {
@@ -809,7 +924,33 @@ img {
 .text-center {
     text-align: center;
 }
-
+.b-0 {
+    bottom: 0;
+}
+.t-0 {
+    top: 0;
+}
+.l-0 {
+    left: 0;
+}
+.r-0 {
+    right: 0;
+}
+.z-10 {
+    z-index: 10;
+}
+.z-20 {
+    z-index: 20;
+}
+.z-30 {
+    z-index: 30;
+}
+.z-40 {
+    z-index: 40;
+}
+.z-50 {
+    z-index: 50;
+}
 /*=================================================================*/
 .items-center {
     align-items: center;
@@ -855,6 +996,9 @@ img {
 .gap-30 {
     grid-gap: 1.875rem;
 }
+.gap-40 {
+    grid-gap: 2.5rem;
+}
 /*=================================================================*/
 .h-full {
     height: 100%;
@@ -896,6 +1040,37 @@ img {
         color: #fb7906;
     }
 }
+.hover-text-black {
+    &:hover {
+        color: #333;
+    }
+    &:active {
+        color: #333;
+    }
+}
+.hover-under {
+    // border-bottom: 1px solid transparent;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        background-color: #000;
+        transition: all 0.2s;
+    }
+    &:hover {
+        &::before {
+            width: 100%;
+        }
+    }
+    &:active {
+        &::before {
+            width: 100%;
+        }
+    }
+}
 .link-hover {
     &:hover {
         text-decoration: underline;
@@ -923,4 +1098,11 @@ img {
 }
 .border-b {
     border-bottom: 1px solid #60606050;
+}
+.border-t {
+    border-top: 1px solid #60606050;
+}
+
+.over-hidden {
+    overflow: hidden;
 }
