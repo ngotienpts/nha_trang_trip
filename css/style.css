@@ -1715,4 +1715,10 @@ img {
   width: 1rem;
 }
 
+.footer-primary {
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
 /*# sourceMappingURL=style.css.map */
