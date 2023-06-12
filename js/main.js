@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     // back top
     var backTop = document.querySelector("#back-top");
+    // body
+    var body = document.body;
+    // header
+    var headerSecondary = document.querySelector(".js__headerSecondary");
 
     var fourSliders = document.querySelectorAll(".js__fourItems");
 
@@ -15,6 +19,83 @@ document.addEventListener("DOMContentLoaded", function () {
                     document.body.scrollTop = 0;
                     document.documentElement.scrollTop = 0;
                 });
+
+            // header secondary
+            if (headerSecondary) {
+                var searchIcon = headerSecondary.querySelector(
+                    ".js__headerSearchIcon"
+                );
+                var searchForm = headerSecondary.querySelector(
+                    ".js__headerSearchForm"
+                );
+
+                var overlay = headerSecondary.querySelector(".js__overlay");
+                var headerBar =
+                    headerSecondary.querySelector(".js__headerMenuBar");
+                var headerBarContainer = headerSecondary.querySelector(
+                    ".js__headerMenuBarContainer"
+                );
+                var headerBarClose = headerSecondary.querySelector(
+                    ".js__headerMenuBarClose"
+                );
+                var headerMobileClose = headerSecondary.querySelector(
+                    ".js__headerMobileClose"
+                );
+                var headerMobileBar = headerSecondary.querySelector(
+                    ".js__headerMobileBar"
+                );
+                var headerMobileContainer = headerSecondary.querySelector(
+                    ".js__headerMobileContainer"
+                );
+                var overlayMb = headerSecondary.querySelector(
+                    ".js__headerMobileOverlay"
+                );
+
+                searchIcon.addEventListener("click", function () {
+                    var search = searchIcon.querySelector(".search");
+                    var close = searchIcon.querySelector(".close");
+                    search.classList.toggle("active");
+                    close.classList.toggle("active");
+                    searchForm.classList.toggle("active");
+                });
+
+                headerBar.addEventListener("click", function () {
+                    headerBarContainer.classList.add("active");
+                    overlay.classList.add("active");
+                    body.classList.add("hide");
+                });
+
+                headerBarClose.addEventListener("click", function () {
+                    headerBarContainer.classList.remove("active");
+                    overlay.classList.remove("active");
+                    body.classList.remove("hide");
+                });
+
+                overlay.addEventListener("click", function () {
+                    this.classList.remove("active");
+                    headerBarContainer.classList.remove("active");
+                    body.classList.remove("hide");
+                });
+                //
+
+                headerMobileBar.addEventListener("click", function () {
+                    headerMobileContainer.classList.add("active");
+                    overlayMb.classList.add("active");
+                    body.classList.add("hide");
+                });
+
+                headerMobileClose.addEventListener("click", function () {
+                    headerMobileContainer.classList.remove("active");
+                    overlayMb.classList.remove("active");
+                    body.classList.remove("hide");
+                });
+
+                overlayMb.addEventListener("click", function () {
+                    this.classList.remove("active");
+                    headerMobileContainer.classList.remove("active");
+                    body.classList.remove("hide");
+                });
+            }
         },
 
         // slider four item
@@ -24,8 +105,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     var next = fourSlider.querySelector(".swiper-button-next");
                     var prev = fourSlider.querySelector(".swiper-button-prev");
                     new Swiper(fourSlider, {
-                        slidesPerView: 2,
-                        spaceBetween: 16,
+                        slidesPerView: 1,
+                        spaceBetween: 0,
                         slidesPerGroup: 1,
                         autoplay: {
                             delay: 2500,
@@ -37,14 +118,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         },
                         breakpoints: {
                             640: {
-                                slidesPerView: 2,
+                                slidesPerView: 1,
                                 slidesPerGroup: 1,
-                                spaceBetween: 16,
+                                spaceBetween: 0,
                             },
                             768: {
-                                slidesPerView: 3.3,
+                                slidesPerView: 2,
                                 slidesPerGroup: 1,
-                                spaceBetween: 16,
+                                spaceBetween: 30,
                             },
                             1024: {
                                 slidesPerView: 4,
@@ -65,16 +146,16 @@ document.addEventListener("DOMContentLoaded", function () {
         scrollFunc: function () {
             if (backTop) {
                 if (
-                  document.body.scrollTop > 300 ||
-                  document.documentElement.scrollTop > 300
+                    document.body.scrollTop > 300 ||
+                    document.documentElement.scrollTop > 300
                 ) {
-                  backTop.style.opacity = 1;
-                  backTop.style.visibility = "visible";
+                    backTop.style.opacity = 1;
+                    backTop.style.visibility = "visible";
                 } else {
-                  backTop.style.opacity = 0;
-                  backTop.style.visibility = "hidden";
+                    backTop.style.opacity = 0;
+                    backTop.style.visibility = "hidden";
                 }
-              }
+            }
         },
 
         // window scroll

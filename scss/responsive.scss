@@ -13,6 +13,10 @@
         display: grid;
     }
     /*------------------------------------------------------------- index*/
+    .wrapper {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
 }
 // max width 1024px
 @media (max-width: 64em) {
@@ -52,7 +56,66 @@
     }
 
     // --------------------------------------------------------------------index
+    .wrapper {
+        padding-left: 3.5rem;
+        padding-right: 3.5rem;
+    }
+    .home-primary {
+        flex-direction: column;
+        padding-bottom: 0;
+        &__left {
+            order: 2;
+            padding-right: 0;
+        }
+        &__right {
+            order: 1;
+            width: 100%;
+        }
+    }
 
+    .home-tertiary {
+        &__small {
+            &-img {
+                width: 100%;
+            }
+            &-content {
+                padding: 1.25rem 0 0;
+            }
+        }
+    }
+    .home-quaternary__left .home-quaternary__smalls {
+        grid-column-gap: 1.5rem;
+    }
+    .home-quaternary {
+        &__large {
+            &-title {
+                font-size: 1.75rem;
+            }
+        }
+        &__small {
+            &-content {
+                padding: 0 0 0 1rem;
+            }
+            &-title {
+                font-size: 1.125rem;
+            }
+        }
+    }
+    .home-quinary {
+        &__thumb {
+            &-content {
+                padding: 0 0 0 1.75rem;
+            }
+        }
+    }
+    .footer-links,
+    .footer-popular,
+    .footer-contact {
+        margin-top: 1.5rem;
+    }
+    .footer-info__logo {
+        font-size: 2.125rem;
+    }
     // --------------------------------------------------------------------cate
 
     // --------------------------------------------------------------------detail
@@ -74,7 +137,110 @@
     }
 
     // --------------------------------------------------------------------header
-
+    .wrapper {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+    .home-primary {
+        &__left {
+            padding-top: 1.25rem;
+        }
+        &__des {
+            font-size: 1rem;
+            // line-height: 1.5rem;
+        }
+        &__meta {
+            font-size: 0.875rem;
+        }
+    }
+    .home-secondary {
+        &__des {
+            font-size: 0.875rem;
+        }
+    }
+    .home-tertiary {
+        &__large {
+            &-meta {
+                font-size: 0.875rem;
+            }
+            &-des {
+                font-size: 1rem;
+            }
+        }
+        &__small {
+            &-des {
+                font-size: 0.875rem;
+            }
+        }
+    }
+    .home-tertiary {
+        &__large {
+            &-content {
+                padding-top: 1.25rem;
+            }
+        }
+    }
+    .home-quaternary {
+        &__large {
+            &-title {
+                font-size: 1.5rem;
+            }
+            &-time {
+                font-size: 0.875rem;
+            }
+            &-des {
+                font-size: 1rem;
+            }
+        }
+        &__left {
+            .home-quaternary__small {
+                &:nth-of-type(1),
+                &:nth-of-type(2) {
+                    border-top: 1px solid #60606050;
+                }
+            }
+        }
+        &__small {
+            &-img {
+                width: 100%;
+            }
+            &-content {
+                padding: 1.25rem 1.25rem 0 1.25rem;
+            }
+            &-des {
+                font-size: 0.875rem;
+            }
+        }
+        &__right {
+            .home-quaternary__small-content {
+                padding: 0;
+            }
+        }
+    }
+    .home-quinary {
+        &__thumb {
+            &-img {
+                width: 100%;
+            }
+            &-content {
+                padding: 1.75rem 1.75rem 0 1.75rem;
+            }
+            &-meta {
+                font-size: 0.875rem;
+            }
+            &-des {
+                font-size: 1rem;
+            }
+        }
+    }
+    .footer-info__logo {
+        font-size: 2rem;
+    }
+    .footer-secondary {
+        p {
+            font-size: 1rem;
+        }
+    }
     // --------------------------------------------------------------------index
 
     // --------------------------------------------------------------------cate
