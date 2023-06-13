@@ -245,7 +245,56 @@
 
     // --------------------------------------------------------------------cate
 
+    .cate {
+        &-container {
+            padding-top: 1.875rem;
+        }
+        &-left {
+            &__large-content {
+                padding-top: 1.875rem;
+            }
+            &__small-img {
+                width: 100%;
+            }
+            &__small-content {
+                padding: 1.875rem 0 0;
+            }
+        }
+        &-more {
+            &__list {
+                font-size: 1rem;
+            }
+        }
+        &-about {
+            &__sapo {
+                font-size: 1rem;
+                padding: 0;
+            }
+        }
+    }
+    .latest-post {
+        &__large-des {
+            font-size: 1rem;
+        }
+        &__small-img {
+            width: 100%;
+        }
+        &__small-content {
+            padding: 1.25rem;
+        }
+    }
+
     // --------------------------------------------------------------------detail
+    .detail-content {
+        p {
+            font-size: 1rem;
+        }
+    }
+    .detail-top {
+        &__des {
+            font-size: 1rem;
+        }
+    }
 }
 
 // danh cho man hinh duoi 400px
