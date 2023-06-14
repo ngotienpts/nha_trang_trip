@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var fourSliders = document.querySelectorAll(".js__fourItems");
 
+    // filters
+    var filters = document.querySelectorAll(".js__filterItem");
+
     const app = {
         // su ly cac su kien
         handleEvent: function () {
@@ -96,6 +99,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     body.classList.remove("hide");
                 });
             }
+
+            // filter
+            filters &&
+                filters.forEach((filter) => {
+                    var heading = filter.querySelector(".js__filterHeading");
+                    var formGroup = filter.querySelector(".js__filterForm");
+                    heading.addEventListener("click", function () {
+                        this.classList.toggle("active");
+                        if (formGroup.style.maxHeight) {
+                            formGroup.style.maxHeight = null;
+                        } else {
+                            formGroup.style.maxHeight =
+                                formGroup.scrollHeight + "px";
+                        }
+                    });
+                });
         },
 
         // slider four item

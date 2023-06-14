@@ -37,6 +37,10 @@
   .d-lg-grid {
     display: grid;
   }
+
+  .book-cate__right {
+    padding-top: 2.5rem;
+  }
 }
 @media (max-width: 48em) {
   .d-md-none {
@@ -106,6 +110,13 @@
 
   .footer-info__logo {
     font-size: 2.125rem;
+  }
+
+  .book-cate__item-img {
+    width: 100%;
+  }
+  .book-cate__item-content {
+    padding: 1.25rem 0;
   }
 }
 @media (max-width: 40em) {
@@ -240,6 +251,17 @@
 
   .detail-top__des {
     font-size: 1rem;
+  }
+
+  .book-cate-search {
+    height: 3rem;
+    border-width: 3px;
+  }
+  .book-cate-search__btn {
+    padding: 0.25rem 1rem;
+  }
+  .book-cate__item-title {
+    font-size: 1.25rem;
   }
 }
 
