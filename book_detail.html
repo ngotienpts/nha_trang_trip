@@ -16,6 +16,7 @@
   <!-- end font -->
   
   <link rel="stylesheet" href="./lib/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./lib/fancybox/jquery.fancybox.min.css" />
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/responsive.css" />
   <script src="./lib/jquery/jquery.js"></script>
@@ -692,7 +693,7 @@
     <div class="wrapper w-1400">
       <div class="book-detail">
         <!-- action -->
-        <div class="book-detail__action mb-40 d-2xl-flex items-center justify-between">
+        <div class="book-detail__action mb-40 d-2xl-flex d-md-block items-center justify-between">
             <!-- left -->
             <div class="left d-2xl-flex items-center">
                 <!-- star -->
@@ -767,8 +768,9 @@
 
             <!-- right -->
             <div class="right d-2xl-flex items-center">
+              <div class="d-2xl-flex items-center">
                 <!-- heart -->
-                <div class="book-detail__action-heart mr-10">
+                <div class="book-detail__action-heart mr-10 transition hover-bg-blue cursor">
                     <div class="icon p-8 h-40 text-blue-007">
                         <svg size="medium" width="24" height="24" fill="currentColor" viewBox="0 0 128 128" fill="#0071C2"><path d="M119.5 40.3a29 29 0 0 0-22.8-23.7 33.8 33.8 0 0 0-32.7 13 33.7 33.7 0 0 0-32.7-13A29 29 0 0 0 8.5 40.3c-1.3 7.2-.6 18.8 9.4 33.3A140 140 0 0 0 62 111.5a3.7 3.7 0 0 0 4 0c20.2-12 35-24.8 44.1-38 10-14.4 10.7-26 9.5-33.2zm-55.5 63c-33-20.1-50.8-43-47.7-61.6A20.7 20.7 0 0 1 33 24.3a22.3 22.3 0 0 1 4.5-.4c8.8 0 17.3 5.2 23.2 14.6a4 4 0 0 0 3.4 1.8 4 4 0 0 0 3.4-1.8c6-9.4 14.4-14.6 23.2-14.6a22.3 22.3 0 0 1 4.5.5 20.7 20.7 0 0 1 16.6 17.2c3 18.6-14.8 41.6-47.8 61.7z"></path></svg>
                     </div>
@@ -776,12 +778,50 @@
                 <!-- end heart -->
 
                 <!-- share -->
-                <div class="book-detail__action-share mr-10">
-                    <div class="icon p-8 h-40 text-blue-007">
+                <div class="book-detail__action-share mr-10 position-relative js__dropdown">
+                    <div class="icon p-8 h-40 text-blue-007 transition hover-bg-blue cursor js__dropdownShow">
                         <svg fill="currentColor" width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.25 11.25a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm1.5 0a4.5 4.5 0 1 0-9 0 4.5 4.5 0 0 0 9 0zm12-5.25a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm1.5 0a4.5 4.5 0 1 0-9 0 4.5 4.5 0 0 0 9 0zm-1.5 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm1.5 0a4.5 4.5 0 1 0-9 0 4.5 4.5 0 0 0 9 0zM9.018 10.59l6.508-2.531a.75.75 0 0 0-.544-1.398L8.474 9.192a.75.75 0 1 0 .544 1.398zm-.748 3.009l6.79 3.395a.75.75 0 1 0 .67-1.342l-6.79-3.395a.75.75 0 1 0-.67 1.342z"></path></svg>
+                    </div>
+                    <div class="book-detail__action-droprdown position-absolute r-0 shadow bg-white z-50 js__dropdownContainer">
+                      <h3 class="fw-600 fs-20 px-16 pt-16 pb-8">Chia sẻ thông tin chỗ nghỉ này</h3>
+                      <ul class="book-detail__action-droprdown-list">
+                        <li>
+                          <div class="book-detail__action-droprdown-item book-detail__action-droprdown-copyLink  transition py-12 px-16 d-2xl-flex items-center js__copyLink">
+                            <div class="copied not-copied d-2xl-flex items-center">
+                              <div class="d-2xl-flex items-center icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M17.25 22.5H3.75a.75.75 0 0 1-.75-.75V5.25a.75.75 0 0 0-1.5 0v16.5A2.25 2.25 0 0 0 3.75 24h13.5a.75.75 0 0 0 0-1.5zm3.75-12v8.75a.25.25 0 0 1-.25.25H6.25a.25.25 0 0 1-.25-.25V1.75a.25.25 0 0 1 .25-.25h14.5a.25.25 0 0 1 .25.25v8.75zm1.5 0V1.75A1.75 1.75 0 0 0 20.75 0H6.25A1.75 1.75 0 0 0 4.5 1.75v17.5c0 .966.784 1.75 1.75 1.75h14.5a1.75 1.75 0 0 0 1.75-1.75V10.5z"></path></svg>
+                              </div>
+                              <span>Copy đường dẫn</span>
+                            </div>
+                            <div class="copied yet-copied d-2xl-none items-center text-green-008">
+                              <div class="d-2xl-flex items-center icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 128 128"><path d="M56.62 93.54a4 4 0 0 1-2.83-1.18L28.4 67a4 4 0 1 1 5.65-5.65l22.13 22.1 33-44a4 4 0 1 1 6.4 4.8L59.82 91.94a4.06 4.06 0 0 1-2.92 1.59zM128 64c0-35.346-28.654-64-64-64C28.654 0 0 28.654 0 64c0 35.346 28.654 64 64 64 35.33-.039 63.961-28.67 64-64zm-8 0c0 30.928-25.072 56-56 56S8 94.928 8 64 33.072 8 64 8c30.914.033 55.967 25.086 56 56z"></path></svg>
+                              </div>
+                              <span>Đường dẫn đã được sao chép</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <a href="#" class="book-detail__action-droprdown-item transition py-12 px-16 d-2xl-flex items-center">
+                            <div class="d-2xl-flex items-center icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M17.768 7H13.5l.5.5V5.6c-.04-.325.142-.562.4-.597a.472.472 0 0 1 .087-.004l1.489.005.185.001.929.003.408.002a.5.5 0 0 0 .502-.5V.5a.5.5 0 0 0-.5-.5h-4.329C9.577 0 8 2.28 8 5.355V7.5l.5-.5h-3a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h3l-.5-.5v12a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5v-12l-.5.5h3.851a.5.5 0 0 0 .497-.448l.417-4A.5.5 0 0 0 17.768 7zm0 1l-.497-.552-.417 4L17.35 11H13.5a.5.5 0 0 0-.5.5v12l.5-.5h-5l.5.5v-12a.5.5 0 0 0-.5-.5h-3l.5.5v-4l-.5.5h3a.5.5 0 0 0 .5-.5V5.355C9 2.77 10.224 1 13.171 1H17.5L17 .5v4.01l.502-.5-.408-.002-.93-.003h-.185A677.38 677.38 0 0 0 14.512 4a1.472 1.472 0 0 0-1.508 1.666L13 7.5a.5.5 0 0 0 .5.5h4.268z"></path></svg>
+                            </div>
+                            <span>Facebook</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="book-detail__action-droprdown-item transition py-12 px-16 d-2xl-flex items-center">
+                            <div class="d-2xl-flex items-center icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"  viewBox="0 0 24 24"><path d="M23.121 6.143l-2-.5.326.709 1-2a.5.5 0 0 0-.584-.705l-2.464.7.478.115A4.98 4.98 0 0 0 11.5 8.131v.997l.399-.49C8.814 9.275 5.91 7.792 2.878 4.3a.5.5 0 0 0-.87.236c-.53 2.826.015 5.004 1.66 6.466l.414-.867-3-.5a.5.5 0 0 0-.573.59c.512 2.615 1.822 4.103 4.435 4.4l-.13-.961-2.5 1a.5.5 0 0 0-.261.688c.984 1.968 2.302 2.532 5.408 2.774l-.252-.905a10.247 10.247 0 0 1-6.197 1.907c-.547-.013-.714.735-.215.957 6.046 2.687 11.34 2.476 15.265-.165 3.406-2.292 5.438-6.28 5.438-10.292V8.3l-.18.384 2-1.672a.5.5 0 0 0-.199-.87zm-.242.97l-.2-.869-2 1.672a.5.5 0 0 0-.179.384v1.328c0 3.686-1.872 7.36-4.996 9.462-3.623 2.438-8.555 2.635-14.3.081l-.216.957a11.248 11.248 0 0 0 6.803-2.093.5.5 0 0 0-.252-.905c-2.792-.218-3.805-.652-4.592-2.226l-.261.688 2.5-1c.482-.193.387-.902-.13-.96-2.131-.243-3.13-1.378-3.565-3.6l-.573.59 3 .5c.495.082.79-.534.414-.868-1.355-1.204-1.81-3.027-1.34-5.534l-.87.236c3.246 3.737 6.474 5.385 9.979 4.662a.5.5 0 0 0 .399-.49v-1a3.98 3.98 0 0 1 6.695-2.934.5.5 0 0 0 .478.115l2.464-.7-.584-.705-1 2a.5.5 0 0 0 .326.71l2 .5z"></path></svg>
+                            </div>
+                            <span>Twitter</span>
+                          </a>
+                        </li>
+                      </ul>
                     </div>
                 </div>
                 <!-- end share -->
+              </div>
 
                 <!-- dat phong -->
                 <div class="bg-blue-007 px-16 py-8 text-white fw-600">
@@ -799,11 +839,186 @@
         <!-- end title -->
 
         <!-- location -->
-        <div class="">
-            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
-            Nguyễn Trung Tín 23, Quy Nhơn, Việt Nam – <p class="text-blue-007"><a href="#" class="fw-600 link-hover">Vị trí xuất sắc - hiển thị bản đồ</a></p>
+        <div class="book-detail__location d-2xl-flex d-sm-block items-center mb-20">
+          <div class="d-2xl-flex items-center ">
+            <div class="d-2xl-flex items-center mr-10 text-blue-007">
+              <svg xmlns="http://www.w3.org/2000/svg" height="1em" fill="currentColor" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+            </div>
+              <span>Nguyễn Trung Tín 23, Quy Nhơn, Việt Nam – </span>
+          </div>
+          <div class="popup position-relative text-blue-007 js__popup">
+            <a href="#" class="fw-600 link-hover js__popupShow">Vị trí xuất sắc - hiển thị bản đồ</a>
+            <div class="popup-container position-fixed t-0 b-0 l-0 r-0 js__popupContainer">
+              <span class="popup-close js__popupClose">&#10005;</span>
+              <div class="popup-content">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.383637728447!2d109.21097787583459!3d13.755723297201177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316f6ce9b5bff691%3A0x70558a7a08f99849!2zMjMgTmd1eeG7hW4gVHJ1bmcgVMOtbiwgTmd1eeG7hW4gVsSDbiBD4burLCBUaMOgbmggcGjhu5EgUXVpIE5oxqFuLCBCw6xuaCDEkOG7i25oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1686819497345!5m2!1svi!2s" width="1920" height="1080" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+          </div>
         </div>
         <!-- end location -->
+
+        <!-- grid image -->
+        <div class="image-gallery d-2xl-grid">
+          <figure class="expNoEdit">
+            <a data-fancybox="gallery" href="./images/1.jpg" data-caption="">
+              <img src="./images/1.jpg" alt="">
+            </a>
+          </figure>
+          <figure class="expNoEdit">
+            <a data-fancybox="gallery" href="./images/2.jpg" data-caption="">
+              <img src="./images/2.jpg" alt="">
+            </a>
+          </figure>
+          <figure class="expNoEdit">
+            <a data-fancybox="gallery" href="./images/3.jpg" data-caption="">
+              <img src="./images/3.jpg" alt="">
+            </a>
+          </figure>
+          <figure class="expNoEdit">
+            <a data-fancybox="gallery" href="./images/4.jpg" data-caption="">
+              <img src="./images/4.jpg" alt="">
+            </a>
+          </figure>
+          <figure class="expNoEdit">
+            <a data-fancybox="gallery" href="./images/1.jpg" data-caption="">
+              <img src="./images/1.jpg" alt="">
+            </a>
+          </figure>
+          <figure class="expNoEdit">
+            <a data-fancybox="gallery" href="./images/2.jpg" data-caption="">
+              <img src="./images/2.jpg" alt="">
+            </a>
+          </figure>
+          <figure class="expNoEdit">
+            <a data-fancybox="gallery" href="./images/3.jpg" data-caption="">
+              <img src="./images/3.jpg" alt="">
+            </a>
+          </figure>
+          <figure class="expNoEdit">
+            <a data-fancybox="gallery" href="./images/4.jpg" data-caption="">
+              <img src="./images/4.jpg" alt="">
+            </a>
+          </figure>
+          <figure class="expNoEdit">
+            <a data-fancybox="gallery" href="./images/2.jpg" data-caption="">
+              <img src="./images/2.jpg" alt="">
+            </a>
+          </figure>
+          <figure class="expNoEdit">
+            <a data-fancybox="gallery" href="./images/2.jpg" data-caption="">
+              <img src="./images/2.jpg" alt="">
+            </a>
+          </figure>
+          <figure class="expNoEdit">
+            <a data-fancybox="gallery" href="./images/2.jpg" data-caption="">
+              <img src="./images/2.jpg" alt="">
+            </a>
+          </figure>
+        </div>
+        <!-- end grid image -->
+
+        <!-- content -->
+        <div class="book-detail__content pb-40">
+          <p>Nằm cách Bãi biển Quy Nhơn 350 m, Flc sea tower quy nhơn view biển- Q house 2 có quầy bar, khu vườn cũng như chỗ nghỉ với sân trong và WiFi miễn phí.</p>
+          <p>Tất cả các căn tại đây đều có máy điều hòa, TV màn hình phẳng, phòng khách với ghế sofa, bếp ăn đầy đủ tiện nghi đi kèm khu vực ăn uống và phòng tắm riêng với vòi xịt/chậu rửa vệ sinh, dép đi trong phòng cùng máy sấy tóc. Các căn còn được trang bị tủ lạnh, bếp nấu ăn và ấm đun nước.</p>
+          <p>Căn hộ có sân hiên.</p>
+          <p>Sân bay gần nhất là sân bay Phù Cát, nằm trong bán kính 28 km từ Flc sea tower quy nhơn view biển- Q house 2.</p>
+          <h2>Q House- FLC Sea Tower đã chào đón khách Booking.com từ 10 tháng 2 2021.</h2>
+          <p>Các khoảng cách nêu trong mô tả chỗ nghỉ được tính toán bằng © OpenStreetMap</p>
+          <h2>Các tiện nghi được ưa chuộng nhất</h2>
+          <div class="convenient-list">
+            <!-- item -->
+            <div class="convenient-item d-2xl-flex items-center">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M23.097 21.71c-.896.187-1.71-.114-2.442-.76a4.629 4.629 0 0 1-.74-.837.75.75 0 0 0-1.272-.004 3.557 3.557 0 0 1-2.925 1.661 2.98 2.98 0 0 1-2.559-1.608.75.75 0 0 0-1.26-.11 4.418 4.418 0 0 1-3.286 1.719c-1.121-.058-2.216-.68-2.876-1.677a.75.75 0 0 0-1.214-.05 6.17 6.17 0 0 1-1.125 1.033c-.833.588-1.677.85-2.49.675a.75.75 0 1 0-.315 1.466c1.285.276 2.526-.107 3.67-.915a7.084 7.084 0 0 0 1.438-1.33l-1.214-.05a5.257 5.257 0 0 0 4.126 2.346c1.807-.084 3.417-.926 4.476-2.303l-1.26-.11a4.49 4.49 0 0 0 3.892 2.414 5.07 5.07 0 0 0 4.192-2.361l-1.272-.004c.192.308.533.739 1.022 1.17 1.057.931 2.32 1.4 3.74 1.104a.75.75 0 0 0-.306-1.468zm0-4.5c-.896.187-1.71-.114-2.442-.76a4.629 4.629 0 0 1-.74-.837.75.75 0 0 0-1.272-.004 3.557 3.557 0 0 1-2.925 1.661 2.98 2.98 0 0 1-2.559-1.608.75.75 0 0 0-1.26-.11 4.418 4.418 0 0 1-3.286 1.719c-1.121-.058-2.216-.68-2.876-1.677a.75.75 0 0 0-1.214-.05 6.17 6.17 0 0 1-1.125 1.033c-.833.588-1.677.85-2.49.675a.75.75 0 1 0-.315 1.466c1.285.276 2.526-.107 3.67-.915a7.084 7.084 0 0 0 1.438-1.33l-1.214-.05a5.257 5.257 0 0 0 4.126 2.346c1.807-.084 3.417-.926 4.476-2.303l-1.26-.11a4.49 4.49 0 0 0 3.892 2.414 5.07 5.07 0 0 0 4.192-2.361l-1.272-.004c.192.308.533.739 1.022 1.17 1.057.931 2.32 1.4 3.74 1.104a.75.75 0 0 0-.306-1.468zm-1.722-8.64a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0zm1.5 0a3.375 3.375 0 1 0-6.75 0 3.375 3.375 0 0 0 6.75 0zM7.777 14.636l3.831-2.4a.75.75 0 0 0 .166-1.13L8.964 7.9a2.25 2.25 0 0 1 .687-3.494l4.264-2.135a.751.751 0 1 1 .686 1.333l-.01.006-3.405 1.702a1.502 1.502 0 0 0-.448 2.334l5.375 6.142a.75.75 0 1 0 1.128-.988l-5.377-6.145-.002-.003v-.001l3.394-1.697.027-.013A2.25 2.25 0 0 0 13.238.93L8.98 3.065a3.749 3.749 0 0 0-1.144 5.824l2.81 3.206.166-1.13-3.831 2.4a.75.75 0 0 0 .796 1.272z"></path></svg>
+              </div> 
+              <span>Hồ bơi ngoài trời</span>
+            </div>
+            <!-- end item -->
+            <!-- item -->
+            <div class="convenient-item d-2xl-flex items-center">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M.153 22.237l.85 1.117c.634.76 1.724.856 2.456.244.078-.066.15-.138.216-.217l.944-1.132a.228.228 0 0 1 .349.001l.944 1.13a1.728 1.728 0 0 0 2.651.001l.944-1.132a.228.228 0 0 1 .349.001l.95 1.132a1.728 1.728 0 0 0 2.65 0l.942-1.133a.228.228 0 0 1 .349.001l.942 1.13a1.728 1.728 0 0 0 2.651.001l.944-1.132a.228.228 0 0 1 .349.001l.94 1.13a1.728 1.728 0 0 0 2.652.001l.585-.7a.75.75 0 1 0-1.15-.962l-.585.7a.228.228 0 0 1-.35 0l-.94-1.13a1.728 1.728 0 0 0-2.652-.001l-.944 1.132a.228.228 0 0 1-.349-.001l-.942-1.13a1.728 1.728 0 0 0-2.651-.001l-.943 1.132a.228.228 0 0 1-.348-.001l-.95-1.132a1.726 1.726 0 0 0-2.65 0l-.944 1.133a.228.228 0 0 1-.349-.001l-.944-1.13a1.728 1.728 0 0 0-2.65 0l-.945 1.13a.228.228 0 0 1-.349-.001l-.828-1.09a.75.75 0 1 0-1.194.91zm11.335-2.68A7.161 7.161 0 0 1 15.77 18h7.481a.75.75 0 0 0 0-1.5h-7.5a8.673 8.673 0 0 0-5.196 1.884.75.75 0 1 0 .934 1.174zM22.285 7.969a1.729 1.729 0 0 0 .781-2.711C19.43.713 12.8-.022 8.256 3.614a10.536 10.536 0 0 0-3.952 8.171A1.73 1.73 0 0 0 6.6 13.427l15.684-5.459zm-.494-1.416L6.107 12.01a.229.229 0 0 1-.304-.218 9.036 9.036 0 0 1 16.09-5.599.228.228 0 0 1-.102.359zm-9.459-4.2L11.69.504a.75.75 0 1 0-1.416.492l.643 1.848a.75.75 0 1 0 1.416-.492zm1.156 7.883l2.527 7.262a.75.75 0 1 0 1.416-.494l-2.527-7.26a.75.75 0 1 0-1.416.492z"></path></svg>
+              </div> 
+              <span>Giáp biển</span>
+            </div>
+            <!-- end item -->
+            <!-- item -->
+            <div class="convenient-item d-2xl-flex items-center">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14.25 18.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm1.5 0a3.75 3.75 0 1 0-7.5 0 3.75 3.75 0 0 0 7.5 0zm2.08-5.833a8.25 8.25 0 0 0-11.666 0 .75.75 0 0 0 1.06 1.06 6.75 6.75 0 0 1 9.546 0 .75.75 0 0 0 1.06-1.06zm3.185-3.182c-4.979-4.98-13.051-4.98-18.03 0a.75.75 0 1 0 1.06 1.06c4.394-4.393 11.516-4.393 15.91 0a.75.75 0 1 0 1.06-1.06zm2.746-3.603C17.136-.043 6.864-.043.24 6.132A.75.75 0 1 0 1.26 7.23c6.05-5.638 15.429-5.638 21.478 0a.75.75 0 0 0 1.022-1.098z"></path></svg>
+              </div> 
+              <span>Wifi miễn phí</span>
+            </div>
+            <!-- end item -->
+            <!-- item -->
+            <div class="convenient-item d-2xl-flex items-center">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="currentColor"><path d="M108.42 55.84H44.26a9 9 0 0 0-8.94 8.94v20.67H19.58a9 9 0 0 0-8.93 8.94v14.8a9 9 0 0 0 8.93 8.94h6.47c2.2 7.332 9.928 11.491 17.26 9.291a13.861 13.861 0 0 0 9.29-9.291h22.8c2.2 7.332 9.928 11.491 17.26 9.291a13.861 13.861 0 0 0 9.29-9.291h1.53c7.658-.006 13.864-6.212 13.87-13.87V64.78a9 9 0 0 0-8.93-8.94zm.93 8.94v20.67H92.68V63.84h15.74a.94.94 0 0 1 .93.94zM68 85.45V63.84h16.68v21.61zM44.26 63.84H60v21.61H43.32V64.78c0-.52.42-.94.94-.94zM39.32 120a5.87 5.87 0 1 1 5.87-5.87 5.88 5.88 0 0 1-5.87 5.87zm49.36 0a5.87 5.87 0 1 1 5.87-5.87 5.87 5.87 0 0 1-5.87 5.87zm14.8-9.87H102c-2.2-7.332-9.928-11.491-17.26-9.291a13.861 13.861 0 0 0-9.29 9.291H52.6c-2.2-7.332-9.928-11.491-17.26-9.291a13.861 13.861 0 0 0-9.29 9.291h-6.47a.94.94 0 0 1-.93-.94v-14.8a.94.94 0 0 1 .93-.94h89.77v10.81a5.87 5.87 0 0 1-5.87 5.87zm-92.29-82a4 4 0 0 1 5.467-1.451l.003.001 6.69 3.88 12.33-6-13.79-8a4 4 0 0 1 4-6.91l18.4 10.73 13.07-6.4a4.003 4.003 0 1 1 3.52 7.19l-36 17.6a4 4 0 0 1-3.76-.13l-8.54-5a4 4 0 0 1-1.39-5.52z"></path></svg>
+              </div> 
+              <span>Xe đưa đón sân bay</span>
+            </div>
+            <!-- end item -->
+            <!-- item -->
+            <div class="convenient-item d-2xl-flex items-center">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.75 5.25a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm1.5 0a3.75 3.75 0 1 0-7.5 0 3.75 3.75 0 0 0 7.5 0zm-6.182 15.093l.188 1.5A.75.75 0 0 0 18 22.5h3a.75.75 0 0 0 .744-.657l.75-6-.744.657h1.5a.75.75 0 0 0 .75-.75V13.5a4.5 4.5 0 0 0-7.2-3.6.75.75 0 1 0 .9 1.2 3 3 0 0 1 4.8 2.4v2.25l.75-.75h-1.5a.75.75 0 0 0-.744.657l-.75 6L21 21h-3l.744.657-.188-1.5a.75.75 0 0 0-1.488.186zM6.75 5.25a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm1.5 0a3.75 3.75 0 1 0-7.5 0 3.75 3.75 0 0 0 7.5 0zM5.444 20.157l-.188 1.5L6 21H3l.744.657-.75-6A.75.75 0 0 0 2.25 15H.75l.75.75V13.5a3 3 0 0 1 4.8-2.4.75.75 0 1 0 .9-1.2A4.5 4.5 0 0 0 0 13.5v2.25c0 .414.336.75.75.75h1.5l-.744-.657.75 6A.75.75 0 0 0 3 22.5h3a.75.75 0 0 0 .744-.657l.188-1.5a.75.75 0 0 0-1.488-.186zM13.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM15 9a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm-3 3a4.5 4.5 0 0 0-4.5 4.5v.75c0 .414.336.75.75.75h1.5l-.74-.627.75 4.5a.75.75 0 0 0 .74.627H12a.75.75 0 0 0 0-1.5h-1.5l.74.627-.75-4.5a.75.75 0 0 0-.74-.627h-1.5l.75.75v-.75a3 3 0 0 1 3-3 .75.75 0 0 0 0-1.5zm0 1.5a3 3 0 0 1 3 3v.75l.75-.75h-1.5a.75.75 0 0 0-.74.627l-.75 4.5.74-.627H12a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 .74-.627l.75-4.5-.74.627h1.5a.75.75 0 0 0 .75-.75v-.75A4.5 4.5 0 0 0 12 12a.75.75 0 0 0 0 1.5z"></path></svg>
+              </div> 
+              <span>Phòng gia đình</span>
+            </div>
+            <!-- end item -->
+            <!-- item -->
+            <div class="convenient-item d-2xl-flex items-center">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 12c0 5.799-4.701 10.5-10.5 10.5S1.5 17.799 1.5 12 6.201 1.5 12 1.5 22.5 6.201 22.5 12zm1.5 0c0-6.627-5.373-12-12-12S0 5.373 0 12s5.373 12 12 12 12-5.373 12-12zm-9.75-1.5a1.5 1.5 0 0 1-1.5 1.5H10.5l.75.75v-4.5L10.5 9h2.25a1.5 1.5 0 0 1 1.5 1.5zm1.5 0a3 3 0 0 0-3-3H10.5a.75.75 0 0 0-.75.75v4.5c0 .414.336.75.75.75h2.25a3 3 0 0 0 3-3zm-4.5 6.75v-4.5a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0z"></path></svg>
+              </div> 
+              <span>Chỗ đậu xe riêng</span>
+            </div>
+            <!-- end item -->
+            <!-- item -->
+            <div class="convenient-item d-2xl-flex items-center">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19.5 9h2.25a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-.75.75h-7.5a.75.75 0 0 0 0 1.5h7.5A2.25 2.25 0 0 0 24 12.75v-3a2.25 2.25 0 0 0-2.25-2.25H19.5a.75.75 0 0 0 0 1.5zM5.25 13.5h-1.5l.75.75v-6L3.75 9h7.5a.75.75 0 0 0 0-1.5h-7.5a.75.75 0 0 0-.75.75v6c0 .414.336.75.75.75h1.5a.75.75 0 0 0 0-1.5zM15 12v2.25a.75.75 0 0 0 1.5 0V12a.75.75 0 0 0-1.5 0zM0 8.25v6a.75.75 0 0 0 1.5 0v-6a.75.75 0 0 0-1.5 0zm1.28 15.53l22.5-22.5A.75.75 0 0 0 22.72.22L.22 22.72a.75.75 0 1 0 1.06 1.06zM4.5.75A2.25 2.25 0 0 1 2.25 3 2.25 2.25 0 0 0 0 5.25a.75.75 0 0 0 1.5 0 .75.75 0 0 1 .75-.75A3.75 3.75 0 0 0 6 .75a.75.75 0 0 0-1.5 0z"></path></svg>
+              </div> 
+              <span>Phòng không hút thuốc</span>
+            </div>
+            <!-- end item -->
+            <!-- item -->
+            <div class="convenient-item d-2xl-flex items-center">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.72 14.295A7.35 7.35 0 0 1 8.997 8.85a7.148 7.148 0 0 1 2.25-4.972c.005-.005-.004-.005-.01-.01a7.173 7.173 0 0 1 2.261 5.03 7.332 7.332 0 0 1-2.722 5.397h.944zm-.944 1.166a.75.75 0 0 0 .944 0 8.85 8.85 0 0 0 3.277-6.555 8.683 8.683 0 0 0-2.72-6.12 1.482 1.482 0 0 0-2.069.01 8.658 8.658 0 0 0-2.71 6.062 8.869 8.869 0 0 0 3.278 6.603zm3.813-7.013A7.807 7.807 0 0 1 19.023 7.1l.003-.001a7.17 7.17 0 0 1-1.959 5.142 7.332 7.332 0 0 1-5.74 1.891.75.75 0 0 0-.158 1.492 8.85 8.85 0 0 0 6.953-2.318 8.68 8.68 0 0 0 2.404-6.233A1.495 1.495 0 0 0 19.029 5.6a9.304 9.304 0 0 0-5.282 1.608.75.75 0 1 0 .842 1.24zM8.75 7.221A9.239 9.239 0 0 0 3.417 5.6c-.815-.001-1.484.664-1.49 1.488a8.652 8.652 0 0 0 2.37 6.184 8.95 8.95 0 0 0 7.031 2.35.75.75 0 1 0-.158-1.49 7.431 7.431 0 0 1-5.82-1.927 7.142 7.142 0 0 1-1.923-5.091L3.426 7.1a7.746 7.746 0 0 1 4.476 1.357.75.75 0 0 0 .848-1.236zm-4.944 3.966c-2.223.948-3.808 2.716-3.808 4.441 0 3.47 5.422 6 12 6a22.404 22.404 0 0 0 6.977-1.047.75.75 0 0 0 .523-.715v-3.488l-.75.75h4.383a.75.75 0 0 0 .715-.524c.1-.315.15-.643.152-.973 0-2.068-1.986-3.858-5.079-4.944a.75.75 0 1 0-.497 1.416c2.56.898 4.076 2.265 4.076 3.525 0 .176-.028.354-.082.524l.715.226v-.75h-4.383a.75.75 0 0 0-.75.75v3.488l.523-.715a20.922 20.922 0 0 1-6.516.977c-5.856 0-10.507-2.17-10.507-4.5 0-1.02 1.17-2.325 2.896-3.061a.75.75 0 0 0-.588-1.38z"></path></svg>
+              </div> 
+              <span>Trung tâm Spa & chăm sóc sức khoẻ</span>
+            </div>
+            <!-- end item -->
+            <!-- item -->
+            <div class="convenient-item d-2xl-flex items-center">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.868 3.379a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0zm1.5 0a3.375 3.375 0 1 0-6.75 0 3.375 3.375 0 0 0 6.75 0zm-4.125 13.875v4.5a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-1.5 0zm9.505-10.122a2.25 2.25 0 0 0-3.12.624 1.15 1.15 0 0 1-1.364.442 12.11 12.11 0 0 0-8.516 0 1.15 1.15 0 0 1-1.37-.44 2.252 2.252 0 1 0-3.75 2.494 5.642 5.642 0 0 0 6.62 2.19l-1.004-.706v10.018a2.25 2.25 0 0 0 4.5 0h-1.5a2.25 2.25 0 0 0 4.5 0l.006-10.024H15l-.255.705a5.636 5.636 0 0 0 6.628-2.185 2.25 2.25 0 0 0-.625-3.118zm-.832 1.248a.75.75 0 0 1 .208 1.04 4.137 4.137 0 0 1-4.87 1.605.75.75 0 0 0-1.004.705l-.006 10.024a.75.75 0 1 1-1.5 0c0-1-1.5-1-1.5 0a.75.75 0 0 1-1.5 0V11.736a.75.75 0 0 0-1.005-.705 4.143 4.143 0 0 1-4.86-1.61.752.752 0 1 1 1.25-.833A2.65 2.65 0 0 0 8.279 9.6a10.608 10.608 0 0 1 7.457.001 2.65 2.65 0 0 0 3.141-1.015.75.75 0 0 1 1.039-.207zM18 5.254a2.25 2.25 0 0 1 4.5 0l.75-.75h-6l.75.75zm-1.5 0c0 .414.336.75.75.75h6a.75.75 0 0 0 .75-.75 3.75 3.75 0 1 0-7.5 0zm4.5-3v-1.5a.75.75 0 0 0-1.5 0v1.5a.75.75 0 0 0 1.5 0zm-19.5 3a2.25 2.25 0 0 1 4.5 0l.75-.75h-6l.75.75zm-1.5 0c0 .414.336.75.75.75h6a.75.75 0 0 0 .75-.75 3.75 3.75 0 1 0-7.5 0zm4.5-3v-1.5a.75.75 0 0 0-1.5 0v1.5a.75.75 0 0 0 1.5 0z"></path></svg>
+              </div> 
+              <span>Dịch vụ phòng</span>
+            </div>
+            <!-- end item -->
+            <!-- item -->
+            <div class="convenient-item d-2xl-flex items-center">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8.252 24h6a.75.75 0 0 0 0-1.5h-6a.75.75 0 0 0 0 1.5zm3.75-.75v-9a.75.75 0 0 0-1.5 0v9a.75.75 0 0 0 1.5 0zm7.5-16.19a1.5 1.5 0 0 0-1.06-2.56H4.062a1.5 1.5 0 0 0-1.06 2.56l7.72 7.72a.75.75 0 0 0 1.06 0l7.72-7.72zM18.44 6l-7.72 7.72h1.061L4.062 6h14.379zM.752 1.5h2.822a.75.75 0 0 1 .671.415l1.836 3.67a.75.75 0 1 0 1.342-.67L5.587 1.244A2.25 2.25 0 0 0 3.574 0H.752a.75.75 0 1 0 0 1.5zm15.81 3.603a2.997 2.997 0 1 1 1.511 2.038.75.75 0 0 0-.713 1.319 4.497 4.497 0 1 0-2.268-3.06.75.75 0 1 0 1.47-.297z"></path></svg>
+              </div> 
+              <span>Quầy bar</span>
+            </div>
+            <!-- end item -->
+            <!-- item -->
+            <div class="convenient-item d-2xl-flex items-center">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3.75 4.5h12a.75.75 0 0 1 .75.75v7.5a6.75 6.75 0 0 1-13.5 0v-7.5a.75.75 0 0 1 .75-.75zm0-1.5A2.25 2.25 0 0 0 1.5 5.25v7.5a8.25 8.25 0 0 0 16.5 0v-7.5A2.25 2.25 0 0 0 15.75 3h-12zm-3 18h22.5a.75.75 0 0 0 0-1.5H.75a.75.75 0 0 0 0 1.5zm16.5-15h1.5a3.763 3.763 0 0 1 3.75 3.752 3.762 3.762 0 0 1-3.752 3.748H17.1a.75.75 0 0 0 0 1.5h1.65A5.263 5.263 0 0 0 24 9.752 5.264 5.264 0 0 0 18.752 4.5H17.25a.75.75 0 0 0 0 1.5z"></path></svg>
+              </div> 
+              <span>Bữa sáng</span>
+            </div>
+            <!-- end item -->
+          </div>
+        </div>
+        <!-- end content -->
       </div>
     </div>
 
@@ -929,7 +1144,35 @@
   <!-- end footer -->
 
   <script src="./lib/swiper/swiper-bundle.min.js"></script>
+  <script src="./lib/fancybox/jquery.fancybox.min.js"></script>
   <script src="./js/main.js"></script>
+  <script>
+//    const imageGallery = document.querySelector('.image-gallery');
+// const images = imageGallery.querySelectorAll('img');
+// const totalImages = images.length;
+
+// if (totalImages > 3) {
+//   const columns = totalImages >= 5 ? 6 : 3;
+//   const rows = totalImages > 6 ? Math.ceil((totalImages - 3) / columns) + 2 : 2;
+
+//   imageGallery.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+//   imageGallery.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+
+//   images.forEach((image, index) => {
+//     if (totalImages === 4 && index === 3) {
+//       image.style.gridColumn = `1 / span ${columns}`;
+//     } else if (totalImages === 5 && (index === 3 || index === 4)) {
+//       image.style.gridColumn = `1 / span ${columns}`;
+//     } else if (totalImages > 5 && index >= 3) {
+//       image.style.gridColumn = `1 / span ${columns}`;
+//     }
+
+//     if (totalImages > 10 && index >= 3) {
+//       image.style.display = 'none'; // Ẩn ảnh từ ảnh thứ 1 trở đi nếu có nhiều hơn 10 ảnh
+//     }
+//   });
+// }
+  </script>
 </body>
 
 </html>

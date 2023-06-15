@@ -517,6 +517,10 @@ img {
   color: #febb02;
 }
 
+.text-green-008 {
+  color: #008009;
+}
+
 /*=================================================================*/
 .bg-white {
   background-color: #fff;
@@ -1457,6 +1461,13 @@ img {
   color: #fb7906;
 }
 
+.hover-bg-blue:hover {
+  background-color: rgba(0, 113, 194, 0.06);
+}
+.hover-bg-blue:active {
+  background-color: rgba(0, 113, 194, 0.06);
+}
+
 .hover-text-black:hover {
   color: #333;
 }
@@ -1621,7 +1632,7 @@ body.hide {
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 100;
 }
 .header-mb__close {
   text-align: right;
@@ -2230,6 +2241,162 @@ body.hide {
 .book-detail__action-green .icon {
   width: 1.125rem;
   margin-right: 0.25rem;
+}
+.book-detail__action-droprdown {
+  max-width: 360px;
+  width: max-content;
+}
+.book-detail__action-droprdown:not(.active) {
+  display: none;
+}
+.book-detail__action-droprdown-item {
+  cursor: pointer;
+}
+.book-detail__action-droprdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+.book-detail__action-droprdown-item .icon {
+  width: 1rem;
+  margin-right: 1rem;
+}
+.book-detail__action-droprdown-copyLink.active .yet-copied {
+  display: flex;
+}
+.book-detail__action-droprdown-copyLink.active .not-copied {
+  display: none;
+}
+.book-detail .image-gallery {
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 0.25rem;
+}
+.book-detail .image-gallery .expNoEdit {
+  position: relative;
+  display: block;
+  padding-bottom: 60%;
+}
+.book-detail .image-gallery .expNoEdit img {
+  position: absolute;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.book-detail .image-gallery .expNoEdit:nth-of-type(1) {
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
+.book-detail .image-gallery .expNoEdit:nth-of-type(2) {
+  grid-column: 3/7;
+  grid-row: 1/3;
+}
+.book-detail .image-gallery .expNoEdit:nth-of-type(3) {
+  grid-column: 1/3;
+  grid-row: 2/3;
+}
+.book-detail .image-gallery .expNoEdit:nth-of-type(n + 10) {
+  display: none;
+}
+.book-detail__content > h2,
+.book-detail__content > h3,
+.book-detail__content > h4,
+.book-detail__content > h5,
+.book-detail__content > h6 {
+  font-weight: 600;
+  text-transform: none;
+  font-size: 1.784em;
+  letter-spacing: 0em;
+  line-height: 1.2em;
+  font-family: "EB Garamond", Arial, Helvetica, sans-serif;
+  color: #242627;
+  margin: 2.5rem 0 1.25rem 0;
+}
+.book-detail__content p {
+  font-weight: 400;
+  text-transform: none;
+  font-size: 17px;
+  letter-spacing: 0em;
+  line-height: 1.7em;
+  font-family: "EB Garamond", Arial, Helvetica, sans-serif;
+  margin: 20px 0;
+}
+.book-detail__content > ul {
+  font-size: 17px;
+  letter-spacing: 0em;
+  line-height: 1.7em;
+  font-family: "EB Garamond", Arial, Helvetica, sans-serif;
+  margin: 20px 0;
+  padding-left: 30px;
+}
+.book-detail__content > li {
+  position: relative;
+}
+.book-detail__content > li::before {
+  position: absolute;
+  top: 50%;
+  left: -15px;
+  content: "";
+  width: 4px;
+  height: 4px;
+  background-color: #242627;
+  border-radius: 50%;
+}
+.book-detail__content em {
+  font-style: italic;
+  color: #f0506e;
+}
+
+.convenient-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.convenient-item {
+  margin: 10px 24px 10px 0;
+}
+.convenient-item .icon {
+  display: flex;
+  align-items: center;
+  width: 1.25rem;
+  margin-right: 0.625rem;
+  color: #088009;
+}
+
+.popup-container {
+  padding: 2%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+.popup-container:not(.active) {
+  display: none;
+}
+.popup-close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  right: 20px;
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  z-index: 1003;
+  background: #fff;
+  color: #000000;
+  font-weight: bold;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+}
+.popup-close:hover {
+  color: #003580;
+}
+.popup-content {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+}
+.popup-content iframe {
+  width: 100%;
+  height: 100%;
 }
 
 #back-top {

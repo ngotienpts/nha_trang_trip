@@ -138,6 +138,22 @@
             }
         }
     }
+    // --------------------------------------------------------------------booK detail
+    .book-detail {
+        &__action {
+            .left {
+                justify-content: space-between;
+            }
+            .right {
+                margin-top: 1.25rem;
+                justify-content: space-between;
+            }
+            &-droprdown {
+                right: auto;
+                left: 0;
+            }
+        }
+    }
 }
 
 // max width 640px
@@ -261,6 +277,9 @@
         }
     }
     // --------------------------------------------------------------------index
+    .main-t-50 {
+        padding-top: 30px;
+    }
 
     // --------------------------------------------------------------------cate
 
@@ -325,6 +344,29 @@
         }
         &__item-title {
             font-size: 1.25rem;
+        }
+    }
+    // --------------------------------------------------------------------booK detail
+    .book-detail {
+        &__action {
+            margin-bottom: 1.25rem;
+            .left {
+                justify-content: unset;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                white-space: nowrap;
+            }
+            .right {
+            }
+        }
+        &__title {
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+    }
+    .book-detail__content {
+        p {
+            font-size: 1rem;
         }
     }
 }

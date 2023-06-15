@@ -11,6 +11,18 @@ document.addEventListener("DOMContentLoaded", function () {
     // filters
     var filters = document.querySelectorAll(".js__filterItem");
 
+    // image gallary
+    const imageGallery = document.querySelector(".image-gallery");
+
+    // dropdown
+    var dropdowns = document.querySelectorAll(".js__dropdown");
+
+    // copy link
+    var copyLink = document.querySelector(".js__copyLink");
+
+    // popups
+    var popups = document.querySelectorAll(".js__popup");
+
     const app = {
         // su ly cac su kien
         handleEvent: function () {
@@ -115,6 +127,76 @@ document.addEventListener("DOMContentLoaded", function () {
                         }
                     });
                 });
+
+            // image gallary
+            if (imageGallery) {
+                const images = imageGallery.querySelectorAll(".expNoEdit");
+                const totalImages = images.length;
+                if (totalImages > 3 && totalImages < 9) {
+                    for (i = 3; i < totalImages && i < 9; i++) {
+                        images[i].style.display = "none";
+                    }
+                }
+            }
+
+            // dropdowns
+            dropdowns &&
+                dropdowns.forEach((dropdown) => {
+                    var showDropdown =
+                        dropdown.querySelector(".js__dropdownShow");
+                    var dropdownContainer = dropdown.querySelector(
+                        ".js__dropdownContainer"
+                    );
+
+                    showDropdown.onclick = function () {
+                        dropdownContainer.classList.toggle("active");
+                    };
+                });
+            // copy link
+            if (copyLink) {
+                copyLink.addEventListener("click", function () {
+                    this.classList.add("active");
+                    setTimeout(() => {
+                        this.classList.remove("active");
+                    }, 4000);
+
+                    // Lấy đường dẫn hiện tại của trang
+                    var currentURL = window.location.href;
+
+                    // Tạo một phần tử <input> tạm thời
+                    var tempInput = document.createElement("input");
+                    tempInput.value = currentURL;
+                    document.body.appendChild(tempInput);
+
+                    // Chọn toàn bộ nội dung trong input tạm thời
+                    tempInput.select();
+                    tempInput.setSelectionRange(0, tempInput.value.length);
+
+                    // Thực hiện sao chép nội dung vào clipboard
+                    document.execCommand("copy");
+
+                    // Xóa phần tử input tạm thời khỏi DOM
+                    document.body.removeChild(tempInput);
+                });
+            }
+
+            // popups
+            if (popups) {
+                popups.forEach((popup) => {
+                    var showPopup = popup.querySelector(".js__popupShow");
+                    var popupContainer = popup.querySelector(
+                        ".js__popupContainer"
+                    );
+                    var closePopup = popup.querySelector(".js__popupClose");
+
+                    showPopup.onclick = function () {
+                        popupContainer.classList.add("active");
+                    };
+                    closePopup.onclick = function () {
+                        popupContainer.classList.remove("active");
+                    };
+                });
+            }
         },
 
         // slider four item

@@ -321,6 +321,9 @@ img {
 .text-yellow-fe {
     color: #febb02;
 }
+.text-green-008 {
+    color: #008009;
+}
 /*=================================================================*/
 
 .bg-white {
@@ -1056,6 +1059,14 @@ img {
     }
     &:active {
         color: #fb7906;
+    }
+}
+.hover-bg-blue {
+    &:hover {
+        background-color: rgba(0, 113, 194, 0.06);
+    }
+    &:active {
+        background-color: rgba(0, 113, 194, 0.06);
     }
 }
 .hover-text-black {
