@@ -1,74 +1,63 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // back top
-    var backTop = document.querySelector("#back-top");
-    // body
-    var body = document.body;
-    // header
-    var headerSecondary = document.querySelector(".js__headerSecondary");
-
-    var fourSliders = document.querySelectorAll(".js__fourItems");
-
-    // filters
-    var filters = document.querySelectorAll(".js__filterItem");
-
-    // image gallary
+    const backTop = document.querySelector("#back-top");
+    const body = document.body;
+    const headerSecondary = document.querySelector(".js__headerSecondary");
+    const fourSliders = document.querySelectorAll(".js__fourItems");
+    const filters = document.querySelectorAll(".js__filterItem");
     const imageGallery = document.querySelector(".image-gallery");
-
-    // dropdown
-    var dropdowns = document.querySelectorAll(".js__dropdown");
-
-    // copy link
-    var copyLink = document.querySelector(".js__copyLink");
-
-    // popups
-    var popups = document.querySelectorAll(".js__popup");
+    const dropdowns = document.querySelectorAll(".js__dropdown");
+    const copyLink = document.querySelector(".js__copyLink");
+    const popups = document.querySelectorAll(".js__popup");
 
     const app = {
-        // su ly cac su kien
         handleEvent: function () {
-            const _this = this;
-
-            // when click back top
-            backTop &&
-                (backTop.onclick = function () {
+            // When click back top
+            if (backTop) {
+                backTop.addEventListener("click", function () {
                     document.body.scrollTop = 0;
                     document.documentElement.scrollTop = 0;
                 });
+            }
 
-            // header secondary
+            // Header secondary
             if (headerSecondary) {
-                var searchIcon = headerSecondary.querySelector(
+                const searchIcon = headerSecondary.querySelector(
                     ".js__headerSearchIcon"
                 );
-                var searchForm = headerSecondary.querySelector(
+                const searchForm = headerSecondary.querySelector(
                     ".js__headerSearchForm"
                 );
-
-                var overlay = headerSecondary.querySelector(".js__overlay");
-                var headerBar =
+                const overlay = headerSecondary.querySelector(".js__overlay");
+                const headerBar =
                     headerSecondary.querySelector(".js__headerMenuBar");
-                var headerBarContainer = headerSecondary.querySelector(
+                const headerBarContainer = headerSecondary.querySelector(
                     ".js__headerMenuBarContainer"
                 );
-                var headerBarClose = headerSecondary.querySelector(
+                const headerBarClose = headerSecondary.querySelector(
                     ".js__headerMenuBarClose"
                 );
-                var headerMobileClose = headerSecondary.querySelector(
+                const headerMobileClose = headerSecondary.querySelector(
                     ".js__headerMobileClose"
                 );
-                var headerMobileBar = headerSecondary.querySelector(
+                const headerMobileBar = headerSecondary.querySelector(
                     ".js__headerMobileBar"
                 );
-                var headerMobileContainer = headerSecondary.querySelector(
+                const headerMobileContainer = headerSecondary.querySelector(
                     ".js__headerMobileContainer"
                 );
-                var overlayMb = headerSecondary.querySelector(
+                const overlayMb = headerSecondary.querySelector(
                     ".js__headerMobileOverlay"
                 );
 
+                const toggleOverlay = function () {
+                    overlay.classList.remove("active");
+                    headerBarContainer.classList.remove("active");
+                    body.classList.remove("hide");
+                };
+
                 searchIcon.addEventListener("click", function () {
-                    var search = searchIcon.querySelector(".search");
-                    var close = searchIcon.querySelector(".close");
+                    const search = searchIcon.querySelector(".search");
+                    const close = searchIcon.querySelector(".close");
                     search.classList.toggle("active");
                     close.classList.toggle("active");
                     searchForm.classList.toggle("active");
@@ -80,18 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     body.classList.add("hide");
                 });
 
-                headerBarClose.addEventListener("click", function () {
-                    headerBarContainer.classList.remove("active");
-                    overlay.classList.remove("active");
-                    body.classList.remove("hide");
-                });
-
-                overlay.addEventListener("click", function () {
-                    this.classList.remove("active");
-                    headerBarContainer.classList.remove("active");
-                    body.classList.remove("hide");
-                });
-                //
+                headerBarClose.addEventListener("click", toggleOverlay);
+                overlay.addEventListener("click", toggleOverlay);
 
                 headerMobileBar.addEventListener("click", function () {
                     headerMobileContainer.classList.add("active");
@@ -105,54 +84,50 @@ document.addEventListener("DOMContentLoaded", function () {
                     body.classList.remove("hide");
                 });
 
-                overlayMb.addEventListener("click", function () {
-                    this.classList.remove("active");
-                    headerMobileContainer.classList.remove("active");
-                    body.classList.remove("hide");
+                overlayMb.addEventListener("click", toggleOverlay);
+            }
+
+            // Filter
+            if (filters) {
+                filters.forEach((filter) => {
+                    const heading = filter.querySelector(".js__filterHeading");
+                    const formGroup = filter.querySelector(".js__filterForm");
+                    heading.addEventListener("click", function () {
+                        this.classList.toggle("active");
+                        formGroup.style.maxHeight = formGroup.style.maxHeight
+                            ? null
+                            : formGroup.scrollHeight + "px";
+                    });
                 });
             }
 
-            // filter
-            filters &&
-                filters.forEach((filter) => {
-                    var heading = filter.querySelector(".js__filterHeading");
-                    var formGroup = filter.querySelector(".js__filterForm");
-                    heading.addEventListener("click", function () {
-                        this.classList.toggle("active");
-                        if (formGroup.style.maxHeight) {
-                            formGroup.style.maxHeight = null;
-                        } else {
-                            formGroup.style.maxHeight =
-                                formGroup.scrollHeight + "px";
-                        }
-                    });
-                });
-
-            // image gallary
+            // Image gallery
             if (imageGallery) {
                 const images = imageGallery.querySelectorAll(".expNoEdit");
                 const totalImages = images.length;
                 if (totalImages > 3 && totalImages < 9) {
-                    for (i = 3; i < totalImages && i < 9; i++) {
+                    for (let i = 3; i < totalImages && i < 9; i++) {
                         images[i].style.display = "none";
                     }
                 }
             }
 
-            // dropdowns
-            dropdowns &&
+            // Dropdowns
+            if (dropdowns) {
                 dropdowns.forEach((dropdown) => {
-                    var showDropdown =
+                    const showDropdown =
                         dropdown.querySelector(".js__dropdownShow");
-                    var dropdownContainer = dropdown.querySelector(
+                    const dropdownContainer = dropdown.querySelector(
                         ".js__dropdownContainer"
                     );
 
-                    showDropdown.onclick = function () {
+                    showDropdown.addEventListener("click", function () {
                         dropdownContainer.classList.toggle("active");
-                    };
+                    });
                 });
-            // copy link
+            }
+
+            // Copy link
             if (copyLink) {
                 copyLink.addEventListener("click", function () {
                     this.classList.add("active");
@@ -160,51 +135,47 @@ document.addEventListener("DOMContentLoaded", function () {
                         this.classList.remove("active");
                     }, 4000);
 
-                    // Lấy đường dẫn hiện tại của trang
-                    var currentURL = window.location.href;
-
-                    // Tạo một phần tử <input> tạm thời
-                    var tempInput = document.createElement("input");
+                    const currentURL = window.location.href;
+                    const tempInput = document.createElement("input");
                     tempInput.value = currentURL;
                     document.body.appendChild(tempInput);
-
-                    // Chọn toàn bộ nội dung trong input tạm thời
                     tempInput.select();
                     tempInput.setSelectionRange(0, tempInput.value.length);
-
-                    // Thực hiện sao chép nội dung vào clipboard
                     document.execCommand("copy");
-
-                    // Xóa phần tử input tạm thời khỏi DOM
                     document.body.removeChild(tempInput);
                 });
             }
 
-            // popups
+            // Popups
             if (popups) {
                 popups.forEach((popup) => {
-                    var showPopup = popup.querySelector(".js__popupShow");
-                    var popupContainer = popup.querySelector(
+                    const showPopup = popup.querySelector(".js__popupShow");
+                    const popupContainer = popup.querySelector(
                         ".js__popupContainer"
                     );
-                    var closePopup = popup.querySelector(".js__popupClose");
+                    const closePopup = popup.querySelector(".js__popupClose");
 
-                    showPopup.onclick = function () {
+                    showPopup.addEventListener("click", function () {
                         popupContainer.classList.add("active");
-                    };
-                    closePopup.onclick = function () {
+                    });
+
+                    closePopup.addEventListener("click", function () {
                         popupContainer.classList.remove("active");
-                    };
+                    });
                 });
             }
         },
 
-        // slider four item
         sliderFourItems: function () {
-            fourSliders &&
+            if (fourSliders) {
                 fourSliders.forEach((fourSlider) => {
-                    var next = fourSlider.querySelector(".swiper-button-next");
-                    var prev = fourSlider.querySelector(".swiper-button-prev");
+                    const next = fourSlider.querySelector(
+                        ".swiper-button-next"
+                    );
+                    const prev = fourSlider.querySelector(
+                        ".swiper-button-prev"
+                    );
+
                     new Swiper(fourSlider, {
                         slidesPerView: 1,
                         spaceBetween: 0,
@@ -241,9 +212,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         },
                     });
                 });
+            }
         },
 
-        // scroll top
         scrollFunc: function () {
             if (backTop) {
                 if (
@@ -259,22 +230,15 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         },
 
-        // window scroll
         windowScroll: function () {
-            var _this = this;
-            window.onscroll = function () {
-                // scroll top
-                _this.scrollFunc();
-            };
+            window.addEventListener("scroll", () => {
+                this.scrollFunc();
+            });
         },
-        // khoi tao function start
-        start: function () {
-            // su ly cac su kien
-            this.handleEvent();
-            // window scroll
-            this.windowScroll();
 
-            // // slider four item
+        start: function () {
+            this.handleEvent();
+            this.windowScroll();
             this.sliderFourItems();
         },
     };
